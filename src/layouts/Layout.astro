@@ -1,0 +1,19 @@
+---
+import '../styles/index.scss';
+const { pageData, title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <script src="../js/index.js"></script>
+  </head>
+  <body data-page={pageData}>
+    <slot />
+  </body>
+</html>
