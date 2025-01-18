@@ -17,13 +17,11 @@ body {
       justify-content: space-between;
     }
     .header_inner {
-      @include media(sp) {
-      }
       @include media(pc) {
         display: flex;
         align-items: center;
-        padding-left: pc(80);
         gap: pc(60);
+        padding-left: pc(80);
       }
       .header_logo {
         @include media(pc) {
@@ -46,10 +44,10 @@ body {
       }
     }
     .header_contact {
-      background-color: #000;
       display: flex;
       align-items: center;
       justify-content: center;
+      background-color: #000;
       @include media(sp) {
       }
       @include media(pc) {

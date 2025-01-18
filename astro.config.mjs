@@ -1,5 +1,6 @@
 import relativeLinks from 'astro-relative-links';
 import { defineConfig } from 'astro/config';
+import eslint from 'vite-plugin-eslint';
 import license from 'rollup-plugin-license';
 
 export default defineConfig({
@@ -60,6 +61,7 @@ export default defineConfig({
           includePrivate: true,
         },
       }),
+      eslint()
     ],
   },
 });
