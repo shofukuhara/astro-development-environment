@@ -8,38 +8,17 @@ const description = 'astro練習ページです。';
 ---
 
 <Layout {title} {description} pageData="top">
-  <header class="header">
-    <div class="header_area">
-      <div class="header_inner">
-        <h1 class="header_logo" data-logo>
-          <img src=`${imagePath}favicon.ico` alt="" />
-        </h1>
-        <nav class="header_nav">
-          <ul class="header_list">
-            <li class="header_item"><a href="" class="header_link">NEWS</a></li>
-            <li class="header_item">
-              <a href="" class="header_link">ABOUT</a>
-            </li>
-            <li class="header_item">
-              <a href="" class="header_link">BUSINESS</a>
-            </li>
-            <li class="header_item">
-              <a href="" class="header_link">COMPANY</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-      <a href="" class="header_contact">
-        <span class="header_text">お問い合わせ</span>
-      </a>
-    </div>
-  </header>
-  <div class="gallery"></div>
-  <div class="imagearea">
-    <ImageFrame
-      srcPaths={['about.jpg', 'about.jpg']}
-      classNames="item item2"
-      loading="eager"
-    />
-  </div>
+  <!-- 画像テンプレート -->
+  <!-- imgタグ -->
+  <ImageFrame
+  srcPaths={['about.jpg']}
+  classNames="item"
+  loading="eager"
+  />
+  <!-- pictureタグ -->
+  <ImageFrame
+  srcPaths={['about.jpg', 'about.jpg']}
+  classNames="item item2"
+  loading="eager"
+  />
 </Layout>
