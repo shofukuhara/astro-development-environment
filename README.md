@@ -18,7 +18,7 @@
 /
 ├── dist/  # ビルド後の出力フォルダ
 │   ├── assets/
-│   │   ├── css
+│   │   ├── styles
 │   │   ├── js
 │   │   └── images
 │   └── index.html
@@ -53,6 +53,6 @@
 ├── astro.config.mjs  # Astroの設定ファイル（ビルド設定、開発サーバー設定など）
 ├── package-lock.json  # 依存関係のロックファイル
 ├── package.json  # プロジェクトの依存関係やスクリプト
-├── README.md  # このドキュメント
+├── README.md  # ドキュメント
 └── tsconfig.json  # TypeScriptの設定ファイル
 ```
