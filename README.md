@@ -32,9 +32,8 @@
 ├── src/  # 開発用フォルダ（Astroコンポーネントやページ、スタイル）
 │   ├── assets  # 画像などを最適化して出力
 │   ├── components  # Astroコンポーネント（ボタン、カードなど）
-│   ├── js  # Vanilla JSコード
+│   ├── js  # Vanilla JS
 │   ├── layouts  # Astroレイアウト（ヘッダー、フッターなど）
-│   ├── modules  # 共通モジュール
 │   ├── pages  # ページコンポーネント（About、News など）
 │   └── styles/  # SCSSファイル
 │       ├── foundation/

@@ -1,16 +1,26 @@
-class fadeEffect {
-  constructor() {
-    this.logo = document.querySelector('[data-logo]');
-  }
-  init() {
-    window.addEventListener('DOMContentLoaded', () => {
-      this._fade();
-    });
-  }
-  _fade() {
-    this.logo.setAttribute('data-logo', 'active');
-  }
-}
+import { UpdateViewportSize } from "./utils/viewport-utils";
+import { BreakpointObserver } from "./utils/breakpoint-utils";
 
-const fade = new fadeEffect();
-fade.init();
+const page = document.querySelector("[data-page]");
+const pageAttribute = page.getAttribute("data-page");
+
+// ================
+// 共通
+// ================
+const commonModules = {
+  viewport: new UpdateViewportSize(),
+};
+
+Object.values(commonModules).forEach((module) => module.init());
+
+// ================
+// 各ページ
+// ================
+const pageModules = {
+  top: UpdateViewportSize,
+};
+
+if (pageAttribute in pageModules) {
+  const instance = new pageModules[pageAttribute]();
+  instance.init();
+}

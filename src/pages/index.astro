@@ -1,24 +1,19 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import ImageFrame from '../modules/ImageFrame.astro';
-const imagePath = './assets/images/';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ImageFrame from '../components/ImageFrame.astro';
 // headタグ
 const title = 'topページ';
 const description = 'astro練習ページです。';
 ---
 
-<Layout {title} {description} pageData="top">
+<BaseLayout {title} {description} pageData="top">
   <!-- 画像テンプレート -->
   <!-- imgタグ -->
-  <ImageFrame
-  srcPaths={['about.jpg']}
-  classNames="item"
-  loading="eager"
-  />
+  <!-- <ImageFrame srcPaths={['about.jpg']} classNames="item" loading="eager" /> -->
   <!-- pictureタグ -->
   <ImageFrame
-  srcPaths={['about.jpg', 'about.jpg']}
-  classNames="item item2"
-  loading="eager"
+    srcPaths={['about.jpg', 'about.jpg']}
+    classNames="item item2"
+    loading="eager"
   />
-</Layout>
+</BaseLayout>
