@@ -1,12 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ImageFrame from '../components/ImageFrame.astro';
-// headタグ
-const title = 'topページ';
-const description = 'astro練習ページです。';
+import ImageFrame from '../components/ui/ImageFrame.astro';
 ---
 
-<BaseLayout {title} {description} pageData="top">
+<BaseLayout pageMeta="home" pageData="top">
   <!-- 画像テンプレート -->
   <!-- imgタグ -->
   <!-- <ImageFrame srcPaths={['about.jpg']} classNames="item" loading="eager" /> -->
