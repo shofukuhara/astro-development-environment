@@ -4,14 +4,10 @@
     "stylelint-config-property-sort-order-smacss",
     "stylelint-prettier/recommended"
   ],
-  "plugins": [
-    "stylelint-prettier",
-    "stylelint-scss",
-    "stylelint-order"
-  ],
+  "plugins": ["stylelint-prettier", "stylelint-scss", "stylelint-order"],
   "ignoreFiles": [
     "**/node_modules/**",
-    "../src/assets/css/foundation/base/_reset.scss"
+    "./src/css/foundation/setting/_reset.scss"
   ],
   "rules": {
     "prettier/prettier": true,
@@ -20,8 +16,9 @@
     "value-keyword-case": "lower",
     "scss/operator-no-unspaced": null,
     "no-descending-specificity": null,
-    "order/properties-alphabetical-order": true,
+    "order/properties-alphabetical-order": null,
     "no-unknown-animations": true,
+    "no-empty-source": null,
     "order/order": [
       "custom-properties",
       "dollar-variables",

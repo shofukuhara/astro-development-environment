@@ -1,7 +1,7 @@
 import relativeLinks from 'astro-relative-links';
 import { defineConfig } from 'astro/config';
-import eslint from 'vite-plugin-eslint';
 import license from 'rollup-plugin-license';
+import eslint from 'vite-plugin-eslint';
 
 export default defineConfig({
   server: {
@@ -36,10 +36,12 @@ export default defineConfig({
             let folder = 'others';
             if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) {
               folder = 'images';
+              return 'assets/images/[name].[hash].[ext]';
             } else if (/css|scss/i.test(extType)) {
-              folder = 'styles';
+              folder = 'css';
+              return 'assets/css/index.css';
             }
-            return `assets/${folder}/index[extname]`;
+            return `assets/${folder}/[name].[ext]`;
           },
           entryFileNames: 'assets/js/index.js',
         },
@@ -61,7 +63,7 @@ export default defineConfig({
           includePrivate: true,
         },
       }),
-      eslint()
+      eslint(),
     ],
   },
 });

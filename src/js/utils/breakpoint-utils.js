@@ -1,6 +1,6 @@
 export class BreakpointObserver {
   constructor(callback) {
-    this.breakpoint = "768px";
+    this.breakpoint = '768px';
     this.callback = callback;
     this.mediaQueryList = null;
     this.init();
@@ -9,7 +9,7 @@ export class BreakpointObserver {
   init() {
     this.mediaQueryList = window.matchMedia(`(min-width: ${this.breakpoint})`);
     this.mediaQueryList.addEventListener(
-      "change",
+      'change',
       this.handleChange.bind(this)
     );
     // 初回実行
@@ -27,8 +27,8 @@ export class BreakpointObserver {
 
 new BreakpointObserver((isPC) => {
   if (isPC) {
-    console.log("PCブレイクポイントを超えました！（769px以上）");
+    console.log('PCブレイクポイントを超えました！（769px以上）');
   } else {
-    console.log("PCブレイクポイント以下になりました！（768px以下）");
+    console.log('PCブレイクポイント以下になりました！（768px以下）');
   }
 });

@@ -6,7 +6,7 @@
     "style:lint": "stylelint \"src/**/*.{css,scss}\"",
     "js:lint": "eslint \"src/js/**/*.js\"",
     "lint": "npm run style:lint && npm run js:lint -- --fix",
-    "format": "prettier --write .",
+    "format": "prettier --write . --ignore-path .prettierignore",
     "dev": "astro dev",
     "build": "npm run lint && astro build && npm run format",
     "preview": "astro preview",

@@ -3,14 +3,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ImageFrame from '../components/ui/ImageFrame.astro';
 ---
 
-<BaseLayout pageMeta="home" pageData="top">
+<BaseLayout pageMeta="home" pageData="home">
   <!-- 画像テンプレート -->
   <!-- imgタグ -->
   <!-- <ImageFrame srcPaths={['about.jpg']} classNames="item" loading="eager" /> -->
   <!-- pictureタグ -->
-  <ImageFrame
-    srcPaths={['about.jpg', 'about.jpg']}
-    classNames="item item2"
-    loading="eager"
-  />
+  <ImageFrame srcPaths={['img_02.jpg', 'img_02.jpg']} classNames="item item2" loading="eager" />
 </BaseLayout>

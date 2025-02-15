@@ -1,8 +1,7 @@
-import { UpdateViewportSize } from "./utils/viewport-utils";
-import { BreakpointObserver } from "./utils/breakpoint-utils";
+import { UpdateViewportSize } from './utils/viewport-utils';
 
-const page = document.querySelector("[data-page]");
-const pageAttribute = page.getAttribute("data-page");
+const page = document.querySelector('[data-page]');
+const pageAttribute = page.getAttribute('data-page');
 
 // ================
 // 共通

@@ -8,9 +8,6 @@
   @return calc(#{$size} / #{$viewport} * 100vw);
 }
 
-
-
-
 // @function pc_vh($size, $viewport: 800) {
 //   $rate: math.div(100, $viewport);
 //   @return ($rate * $size * 1vh);
