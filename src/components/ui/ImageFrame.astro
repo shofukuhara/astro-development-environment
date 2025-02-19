@@ -12,19 +12,10 @@ type Props = {
   format?: 'webp' | 'avif';
 };
 
-const {
-  srcPaths,
-  mediaQuery = 767.9,
-  classNames,
-  alt = '',
-  loading = 'lazy',
-  format = 'webp',
-} = Astro.props;
+const { srcPaths, mediaQuery = 767.9, classNames, alt = '', loading = 'lazy', format = 'webp' } = Astro.props;
 
 const importImage = async (src: string) => {
-  const imageFile = import.meta.glob<{ default: ImageMetadata }>(
-    '/src/assets/**/*'
-  );
+  const imageFile = import.meta.glob<{ default: ImageMetadata }>('/src/assets/**/*');
 
   if (!imageFile[`/src/assets/${src}`]) return;
   const moduleImage = await imageFile[`/src/assets/${src}`]();
@@ -51,26 +42,11 @@ const images = await importImages();
   (
     <>
       {images.length === 1 ? (
-        <img
-          src={images[0]?.src}
-          {...images[0]?.attributes}
-          loading={loading}
-          alt={alt}
-          class:list={[classNames]}
-        />
+        <img src={images[0]?.src} {...images[0]?.attributes} loading={loading} alt={alt} class:list={[classNames]} />
       ) : (
         <picture class:list={[classNames]}>
-          <source
-            media={`(max-width: ${mediaQuery}px)`}
-            srcset={images[0]?.src}
-          />
-          <img
-            src={images[1]?.src}
-            {...images[1]?.attributes}
-            loading={loading}
-            alt={alt}
-            class="i"
-          />
+          <source media={`(max-width: ${mediaQuery}px)`} srcset={images[0]?.src} />
+          <img src={images[1]?.src} {...images[1]?.attributes} loading={loading} alt={alt} class="i" />
         </picture>
       )}
     </>

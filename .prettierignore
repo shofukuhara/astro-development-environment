@@ -5,7 +5,18 @@ dist/assets
 .astro/
 
 # dependencies
+.vscode/
 node_modules/
+public/
+.prettierrc
+.stylelintrc
+astro.config.mjs
+eslint.config.js
+package-lock.json
+package.json
+postcss.config.cjs
+README.md
+
 
 # logs
 npm-debug.log*

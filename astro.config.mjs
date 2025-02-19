@@ -8,30 +8,23 @@ export default defineConfig({
     host: true,
     open: true,
   },
-  // html圧縮する場合はtrueにする
-  compressHTML: false,
-  cssCodeSplit: false,
-  integrations: [relativeLinks()],
-  build: {
-    assets: 'assets/js',
-  },
+  compressHTML: true, // html圧縮する場合はtrue
+  integrations: [relativeLinks()], // 相対パスを使えるように設定
   vite: {
     build: {
-      // minifyを有効にする場合はtrueにする
+      cssMinify: true, // css圧縮する場合はtrue
+      cssCodeSplit: true, // cssコード分割を有効の場合はtrue
+      assetsInlineLimit: 0, //インラインでのcss出力無効
       minify: 'terser',
       terserOptions: {
-        // コメント削除
-        format: { comments: false },
-        // consoleの削除
-        compress: { drop_console: true },
+        format: { comments: false }, // コメント削除
+        compress: { drop_console: true }, // console削除
       },
       rollupOptions: {
         output: {
           assetFileNames: (assetInfo) => {
             // 拡張子を取得
-            let extType =
-              assetInfo.names?.[0]?.split('.').at(-1) ||
-              assetInfo.fileName.split('.').at(-1);
+            let extType = assetInfo.names?.[0]?.split('.').at(-1) || assetInfo.fileName.split('.').at(-1);
             // ファイルタイプごとのフォルダ分け
             let folder = 'others';
             if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) {

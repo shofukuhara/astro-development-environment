@@ -1,8 +1,8 @@
 ---
-import { metaData } from './meta.mjs';
+import metaData from './meta.json';
 
 const { pageMeta } = Astro.props;
-const meta = metaData[pageMeta] || {};
+const meta = metaData[pageMeta] || metaData.default;
 ---
 
 <meta charset="UTF-8" />
@@ -12,16 +12,10 @@ const meta = metaData[pageMeta] || {};
 <meta name="keywords" content={meta.keywords} />
 
 <!-- OG -->
-<meta property="og:url" content={meta.og?.url || ''} />
-<meta property="og:title" content={meta.og?.title || meta.title} />
-<meta
-  property="og:description"
-  content={meta.og?.description || meta.description}
-/>
-<meta property="og:image" content={meta.og?.image || '/default-og.jpg'} />
+<meta property="og:url" content={meta.og.url} />
+<meta property="og:title" content={meta.og.title} />
+<meta property="og:description" content={meta.og.description} />
+<meta property="og:image" content={meta.og.image} />
 
 <!-- Twitter -->
-<meta
-  name="twitter:card"
-  content={meta.twitter?.card || 'summary_large_image'}
-/>
+<meta name="twitter:card" content={meta.twitter.card} />
