@@ -2,18 +2,21 @@
 import type { ImageMetadata } from 'astro';
 import { getImage } from 'astro:assets';
 
+type ImageFormat = 'jpg' | 'png' | 'webp' | 'avif';
+
 type Props = {
   srcPaths: [string, string?];
   mediaQuery?: number;
   classNames?: string;
   alt?: string;
   loading?: 'lazy' | 'eager';
-  format?: 'webp' | 'avif';
+  format?: ImageFormat;
+  quality?: number;
   pictureAttributes?: Record<string, string>;
   imgAttributes?: Record<string, string>;
 };
 
-const { srcPaths, mediaQuery = 767.9, classNames, alt = '', loading = 'lazy', format = 'webp', pictureAttributes = {}, imgAttributes = {} } = Astro.props;
+const { srcPaths, mediaQuery = 767.9, classNames, alt = '', loading = 'lazy', format = 'webp', quality, pictureAttributes = {}, imgAttributes = {} } = Astro.props;
 
 const importImage = async (src: string) => {
   const imageFile = import.meta.glob<{ default: ImageMetadata }>('/src/assets/**/*');
@@ -22,9 +25,25 @@ const importImage = async (src: string) => {
   const moduleImage = await imageFile[`/src/assets/${src}`]();
 
   const { default: imageSrc } = moduleImage;
-  const image = await getImage({ src: imageSrc, format: format });
+  const image = await getImage({
+    src: imageSrc,
+    format: format,
+    quality: quality || getDefaultQuality(format),
+  });
   const { loading: loadingMode, ...attributes } = image.attributes;
   return { src: image.src, attributes };
+};
+
+const getDefaultQuality = (format: ImageFormat): number => {
+  switch (format) {
+    case 'png':
+      return 80;
+    case 'webp':
+    case 'avif':
+      return 85;
+    default:
+      return 90;
+  }
 };
 
 const importImages = async () => {
