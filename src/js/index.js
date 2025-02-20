@@ -16,7 +16,7 @@ Object.values(commonModules).forEach((module) => module.init());
 // 各ページ
 // ================
 const pageModules = {
-  top: UpdateViewportSize,
+  home: UpdateViewportSize,
 };
 
 if (pageAttribute in pageModules) {

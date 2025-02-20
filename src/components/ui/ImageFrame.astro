@@ -2,7 +2,6 @@
 import type { ImageMetadata } from 'astro';
 import { getImage } from 'astro:assets';
 
-//
 type Props = {
   srcPaths: [string, string?];
   mediaQuery?: number;
@@ -10,9 +9,11 @@ type Props = {
   alt?: string;
   loading?: 'lazy' | 'eager';
   format?: 'webp' | 'avif';
+  pictureAttributes?: Record<string, string>;
+  imgAttributes?: Record<string, string>;
 };
 
-const { srcPaths, mediaQuery = 767.9, classNames, alt = '', loading = 'lazy', format = 'webp' } = Astro.props;
+const { srcPaths, mediaQuery = 767.9, classNames, alt = '', loading = 'lazy', format = 'webp', pictureAttributes = {}, imgAttributes = {} } = Astro.props;
 
 const importImage = async (src: string) => {
   const imageFile = import.meta.glob<{ default: ImageMetadata }>('/src/assets/**/*');
@@ -35,6 +36,12 @@ const importImages = async () => {
   );
 };
 
+const applyDataAttributes = (attributes: Record<string, string>) => {
+  return Object.entries(attributes).reduce((acc, [key, value]) => {
+    return { ...acc, [`data-${key}`]: value };
+  }, {});
+};
+
 const images = await importImages();
 ---
 
@@ -42,11 +49,11 @@ const images = await importImages();
   (
     <>
       {images.length === 1 ? (
-        <img src={images[0]?.src} {...images[0]?.attributes} loading={loading} alt={alt} class:list={[classNames]} />
+        <img src={images[0]?.src} {...images[0]?.attributes} {...applyDataAttributes(imgAttributes)} loading={loading} alt={alt} class:list={['i', classNames]} />
       ) : (
-        <picture class:list={[classNames]}>
+        <picture class:list={[classNames]} {...applyDataAttributes(pictureAttributes)}>
           <source media={`(max-width: ${mediaQuery}px)`} srcset={images[0]?.src} />
-          <img src={images[1]?.src} {...images[1]?.attributes} loading={loading} alt={alt} class="i" />
+          <img src={images[1]?.src} {...images[1]?.attributes} loading={loading} alt={alt} class="i" {...applyDataAttributes(imgAttributes)} />
         </picture>
       )}
     </>

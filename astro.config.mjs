@@ -29,12 +29,12 @@ export default defineConfig({
             let folder = 'others';
             if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) {
               folder = 'images';
-              return 'assets/images/[name].[hash].[ext]';
+              return 'assets/images/[name].[extname]';
             } else if (/css|scss/i.test(extType)) {
               folder = 'css';
               return 'assets/css/index.css';
             }
-            return `assets/${folder}/[name].[ext]`;
+            return `assets/${folder}/[name].[extname]`;
           },
           entryFileNames: 'assets/js/index.js',
         },

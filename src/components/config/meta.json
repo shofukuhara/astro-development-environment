@@ -8,9 +8,6 @@
       "title": "サイト名",
       "description": "デフォルトの説明",
       "image": "/images/default-og.jpg"
-    },
-    "twitter": {
-      "card": "summary"
     }
   },
   "home": {
@@ -22,9 +19,6 @@
       "title": "ホームページ",
       "description": "このサイトのホームページです。",
       "image": "/images/home-og.jpg"
-    },
-    "twitter": {
-      "card": "summary_large_image"
     }
   },
   "about": {
@@ -36,9 +30,6 @@
       "title": "Aboutページ",
       "description": "このサイトのAboutページです。",
       "image": "/images/about-og.jpg"
-    },
-    "twitter": {
-      "card": "summary_large_image"
     }
   }
 }
