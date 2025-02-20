@@ -1,5 +1,9 @@
 {
-  "extends": ["stylelint-config-recommended-scss", "stylelint-config-property-sort-order-smacss", "stylelint-prettier/recommended"],
+  "extends": [
+    "stylelint-config-recommended-scss",
+    "stylelint-config-property-sort-order-smacss",
+    "stylelint-prettier/recommended"
+  ],
   "plugins": ["stylelint-prettier", "stylelint-scss", "stylelint-order"],
   "ignoreFiles": ["./src/css/foundation/setting/_reset.scss"],
   "rules": {
@@ -12,7 +16,33 @@
     "order/properties-alphabetical-order": null,
     "no-unknown-animations": true,
     "no-empty-source": null,
-    "order/order": ["custom-properties", "dollar-variables", "at-variables", "declarations", "rules"],
-    "order/properties-order": ["position", "top", "right", "bottom", "left", "z-index", "display", "flex", "flex-direction", "align-items", "justify-content", "width", "height", "margin", "padding", "background", "color", "font-family", "font-size"]
+    "order/order": [
+      "custom-properties",
+      "dollar-variables",
+      "at-variables",
+      "declarations",
+      "rules"
+    ],
+    "order/properties-order": [
+      "position",
+      "top",
+      "right",
+      "bottom",
+      "left",
+      "z-index",
+      "display",
+      "flex",
+      "flex-direction",
+      "align-items",
+      "justify-content",
+      "width",
+      "height",
+      "margin",
+      "padding",
+      "background",
+      "color",
+      "font-family",
+      "font-size"
+    ]
   }
 }

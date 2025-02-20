@@ -1,7 +1,6 @@
-import relativeLinks from 'astro-relative-links';
-import { defineConfig } from 'astro/config';
-import license from 'rollup-plugin-license';
-import eslint from 'vite-plugin-eslint';
+import relativeLinks from "astro-relative-links";
+import { defineConfig } from "astro/config";
+import license from "rollup-plugin-license";
 
 export default defineConfig({
   server: {
@@ -15,7 +14,7 @@ export default defineConfig({
       cssMinify: true, // css圧縮する場合はtrue
       cssCodeSplit: true, // cssコード分割を有効の場合はtrue
       assetsInlineLimit: 0, //インラインでのcss出力無効
-      minify: 'terser',
+      minify: "terser",
       terserOptions: {
         format: { comments: false }, // コメント削除
         compress: { drop_console: true }, // console削除
@@ -24,19 +23,21 @@ export default defineConfig({
         output: {
           assetFileNames: (assetInfo) => {
             // 拡張子を取得
-            let extType = assetInfo.names?.[0]?.split('.').at(-1) || assetInfo.fileName.split('.').at(-1);
+            let extType =
+              assetInfo.names?.[0]?.split(".").at(-1) ||
+              assetInfo.fileName.split(".").at(-1);
             // ファイルタイプごとのフォルダ分け
-            let folder = 'others';
+            let folder = "others";
             if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) {
-              folder = 'images';
-              return 'assets/images/[name].[extname]';
+              folder = "images";
+              return "assets/images/[name].[extname]";
             } else if (/css|scss/i.test(extType)) {
-              folder = 'css';
-              return 'assets/css/index.css';
+              folder = "css";
+              return "assets/css/index.css";
             }
             return `assets/${folder}/[name].[extname]`;
           },
-          entryFileNames: 'assets/js/index.js',
+          entryFileNames: "assets/js/index.js",
         },
       },
     },
@@ -52,11 +53,10 @@ export default defineConfig({
       // 使用しているライブラリのライセンス出力
       license({
         thirdParty: {
-          output: 'dist/assets/js/license.txt',
+          output: "dist/assets/js/license.txt",
           includePrivate: true,
         },
       }),
-      eslint(),
     ],
   },
 });

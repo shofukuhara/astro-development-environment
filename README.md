@@ -5,52 +5,59 @@
 
 | Command              | Action                                                |
 | :------------------- | :---------------------------------------------------- |
-| `npm install`        | 依存関係をインストール 　                             |
-| `npm run dev`        | ローカル開発サーバー localhost:4321起動               |
-| `npm run build`      | ビルドファイル出力 `./dist/`                          |
-| `npm run preview`    | ビルドしたファイルで表示確認 localhost:4321起動　　　 |
-| `npm run style:lint` | SCSSファイルのLintチェックを実行                      |
-| `npm run js:lint`    | jsファイルのLintチェックを実行                        |
-| `npm run format`     | ファイルをフォーマット 　                             |
+| `npm install`        | 依存関係をインストール 　                                 |
+| `npm run dev`        | ローカル開発サーバー localhost:4321起動                   |
+| `npm run build`      | ビルドファイル出力 `./dist/`                             |
+| `npm run preview`    | ビルドしたファイルで表示確認 localhost:4321起動　　　        |
+| `npm run style:lint` | SCSSファイルのLintチェックを実行                          |
+| `npm run format`     | ファイルをフォーマット 　                                 |
+| `npm run renameToPhp`| distに出力されたindex.htmlをindex.phpに変換               |
 
 ```text
 /
-├── dist/  # ビルド後の出力フォルダ
-│   ├── assets/
-│   │   ├── css
-│   │   ├── js
-│   │   └── images
-│   └── index.html
+├─ _php #ビルド後の.htmlファイルを.phpにして格納されるディレクトリ
 │
-├── node_modules/  # インストールされたパッケージ
+├─ dist #ビルド後の成果物が格納されるディレクトリ
+│  ├─ assets
+│  │  ├─ css
+│  │  ├─ fonts
+│  │  ├─ images
+│  │  └─ js
+│  └─ index.html
 │
-├── public/  # 静的ファイル（OGP、Favicon、非圧縮画像など）
-│   └── assets/
-│       └── images
+├─ node_modules　#インストールされたパッケージ
 │
-├── src/  # 開発用フォルダ（Astroコンポーネントやページ、スタイル）
-│   ├── assets  # 画像などを最適化して出力
-│   ├── components  # Astroコンポーネント（ボタン、カードなど）
-│   ├── js  # Vanilla JS
-│   ├── layouts  # Astroレイアウト（ヘッダー、フッターなど）
-│   ├── pages  # ページコンポーネント（About、News など）
-│   └── css/  # SCSSファイル
-│       ├── foundation/
-│       │   ├── setting  # 設定ファイル（メディアクエリ、フォント計算など）
-│       │   └── variable  # 変数（色、フォント、イージングなど）
-│       ├── layout  # レイアウト用スタイル（ヘッダー、フッターなど）
-│       ├── object/
-│       │   ├── components  # UIコンポーネント（ボタン、カードなど）
-│       │   ├── elements  # 小さいパーツ（タイトル、テキスト、画像など）
-│       │   └── pages  # ページ単位のスタイル
-│       └── index.scss  # メインのスタイルシート
+├─ public #静的ファイルを格納するディレクトリ。ビルド時にそのままdistにコピーされる。（OGP,fontsなど）
+│  └─ assets
+│     ├─ fonts
+│     └─ images
 │
-├── .gitignore  # Gitで無視するファイル
-├── .prettierignore  # Prettierに無視させるファイル
-├── .prettierrc  # Prettierの設定
-├── astro.config.mjs  # Astroの設定ファイル（ビルド設定、開発サーバー設定など）
-├── package-lock.json  # 依存関係のロックファイル
-├── package.json  # プロジェクトの依存関係やスクリプト
-├── README.md  # ドキュメント
-└── tsconfig.json  # TypeScriptの設定ファイル
+├─ src
+│  ├─ assets #astroで最適化する画像などを格納
+│  ├─ components #再利用可能なAstroコンポーネント（ボタン、カードなど）
+│  ├─ js #Vanilla JS
+│  ├─ layouts #ページレイアウトのAstroコンポーネント（ヘッダー、フッターなど）
+│  ├─ pages #ルーティングに使用されるAstroページコンポーネントト（home,about、news など）
+│  └─ css #SCSSファイルを格納するディレクトリ。FLOCSSの構造に基づいている。
+│     ├─ foundation
+│     │  ├─ setting #設定ファイル（メディアクエリ、フォント計算など）
+│     │  └─ variable #変数（色、フォント、イージングなど）
+│     │
+│     ├─ layout #レイアウト用スタイル（ヘッダー、フッターなど）
+│     │
+│     ├─ object
+│     │  ├─ components #UIコンポーネント（ボタン、カードなど）
+│     │  ├─ elements #小さいパーツ（タイトル、テキスト、画像など）
+│     │  └─ pages #ページ単位のスタイル
+│     └─ index.scss #エントリーファイル
+│
+├─ .gitignore #Gitの追跡対象外ファイルを指定
+├─ .prettierignore #prettier対象外ファイルを指定
+├─ .prettierrc #prettierの設定ファイル
+├─ astro.config.mjs #Astroの設定ファイル
+├─ package-lock.json #npmパッケージの依存関係
+├─ package.json #ロジェクトの依存関係やスクリプト
+├─ postcss.config.cjs #PostCSSの設定ファイル
+├─ README.md #プロジェクトのドキュメント
+└─ rename-index-to-php.mjs #index.htmlをPHPファイルに変換するスクリプト
 ```
