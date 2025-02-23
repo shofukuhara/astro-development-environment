@@ -5,7 +5,7 @@
     "stylelint-prettier/recommended"
   ],
   "plugins": ["stylelint-prettier", "stylelint-scss", "stylelint-order"],
-  "ignoreFiles": ["./src/css/foundation/setting/_reset.scss"],
+  "ignoreFiles": ["src/assets/css/foundation/setting/_reset.scss"],
   "rules": {
     "prettier/prettier": true,
     "font-family-name-quotes": "always-where-recommended",

@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "style:lint": "stylelint \"src/**/*.scss\"",
+    "style:lint": "stylelint \"src/assets/**/*.scss\"",
     "format": "prettier --write . --ignore-path .prettierignore",
     "renameToPhp": "node ./config/rename-index-to-php.mjs",
     "dev": "astro dev",

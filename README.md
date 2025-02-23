@@ -1,10 +1,9 @@
-### nodeバージョン
-
+### 💻 nodeバージョン
 - node v22.12.0
 - npm v10.9.0
 
 
-### スクリプト
+### 📕 スクリプト
 | Command              | Action                                                |
 | :------------------- | :---------------------------------------------------- |
 | `npm install`        | 依存関係をインストール 　                                 |
@@ -16,7 +15,7 @@
 | `npm run renameToPhp`| distに出力されたindex.htmlをindex.phpに変換               |
 
 
-### ディレクトリ構成
+### 🌲 ディレクトリ構成
 ```text
 /
 ├─ _php #ビルド後の.htmlファイルを.phpにして格納されるディレクトリ
@@ -37,23 +36,26 @@
 │     └─ images
 │
 ├─ src
-│  ├─ assets #astroで最適化する画像などを格納
+│  ├─ assets 
+│  │   ├─ css #SCSSファイルを格納するディレクトリ。FLOCSSの構造に基づいている。
+│  │   │   ├─ foundation
+│  │   │   │  ├─ setting #設定ファイル（メディアクエリ、フォント計算など）
+│  │   │   │  └─ variable #変数（色、フォント、イージングなど）
+│  │   │   │
+│  │   │   ├─ layout #レイアウト用スタイル（ヘッダー、フッターなど）
+│  │   │   │
+│  │   │   ├─ object
+│  │   │   │  ├─ components #UIコンポーネント（ボタン、カードなど）
+│  │   │   │  ├─ elements #小さいパーツ（タイトル、テキスト、画像など）
+│  │   │   │  └─ pages #ページ単位のスタイル
+│  │   │   └─ index.scss #エントリーファイル
+│  │   │   
+│  │   ├─ images #astroで最適化する画像などを格納
+│  │   └─ js #Vanilla JS
+│  │
 │  ├─ components #再利用可能なAstroコンポーネント（ボタン、カードなど）
-│  ├─ js #Vanilla JS
 │  ├─ layouts #ページレイアウトのAstroコンポーネント（ヘッダー、フッターなど）
-│  ├─ pages #ルーティングに使用されるAstroページコンポーネントト（home,about、news など）
-│  └─ css #SCSSファイルを格納するディレクトリ。FLOCSSの構造に基づいている。
-│     ├─ foundation
-│     │  ├─ setting #設定ファイル（メディアクエリ、フォント計算など）
-│     │  └─ variable #変数（色、フォント、イージングなど）
-│     │
-│     ├─ layout #レイアウト用スタイル（ヘッダー、フッターなど）
-│     │
-│     ├─ object
-│     │  ├─ components #UIコンポーネント（ボタン、カードなど）
-│     │  ├─ elements #小さいパーツ（タイトル、テキスト、画像など）
-│     │  └─ pages #ページ単位のスタイル
-│     └─ index.scss #エントリーファイル
+│  └─pages #ルーティングに使用されるAstroページコンポーネント（home,about、news など）
 │
 ├─ .gitignore #Gitの追跡対象外ファイルを指定
 ├─ .prettierignore #prettier対象外ファイルを指定

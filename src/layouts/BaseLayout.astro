@@ -1,5 +1,5 @@
 ---
-import '../css/index.scss';
+import '../assets/css/index.scss';
 import Meta from '../components/config/Meta.astro';
 const { pageData } = Astro.props;
 ---
@@ -11,6 +11,6 @@ const { pageData } = Astro.props;
   </head>
   <body data-page={pageData}>
     <slot />
-    <script src="../js/index.js"></script>
+    <script src="../assets/js/index.js"></script>
   </body>
 </html>

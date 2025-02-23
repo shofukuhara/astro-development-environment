@@ -45,7 +45,9 @@ export default defineConfig({
       devSourcemap: true,
       preprocessorOptions: {
         scss: {
-          additionalData: ``,
+          additionalData: `
+           @use "/src/assets/css/foundation/global/index.scss" as *;
+          `,
         },
       },
     },
