@@ -7,7 +7,7 @@ export default defineConfig({
     host: true,
     open: true,
   },
-  compressHTML: true, // html圧縮する場合はtrue
+  compressHTML: true, // html圧縮する場合はtrue（prettierの設定で圧縮上書きされてます）
   integrations: [relativeLinks()], // 相対パスを使えるように設定
   vite: {
     build: {
@@ -42,11 +42,12 @@ export default defineConfig({
       },
     },
     css: {
+      postcss: "./config/postcss.config.cjs",
       devSourcemap: true,
       preprocessorOptions: {
         scss: {
           additionalData: `
-           @use "/src/assets/css/foundation/global/index.scss" as *;
+          @use "/src/assets/css/foundation/global/index.scss" as *;
           `,
         },
       },

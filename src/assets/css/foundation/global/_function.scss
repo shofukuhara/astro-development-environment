@@ -1,4 +1,4 @@
-@use 'sass:math';
+@use "sass:math";
 // サイズ可変(VW)
 @function pc($size, $viewport: 1440) {
   @return calc(#{$size} / #{$viewport} * 100vw);

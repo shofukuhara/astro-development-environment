@@ -1,9 +1,27 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import ImageFrame from '../components/ui/ImageFrame.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Img from "../elements/Img.astro";
+import Picture from "../elements/Picture.astro";
 ---
 
 <BaseLayout pageMeta="home" pageData="home">
   <!-- body内の要素 -->
-  <ImageFrame srcPaths={['img_02.jpg']} format="webp" quality={85} classNames="" loading="eager" imgAttributes={{ item: 'img' }} />
+  <Img
+    srcPaths={["pc.jpg"]}
+    format="webp"
+    quality={85}
+    classNames="img"
+    loading="eager"
+    alt=""
+    imgAttributes={{ "data-item": "img" }}
+  />
+  <Picture
+    srcPaths={["pc.jpg", "sp.jpg"]}
+    format="webp"
+    quality={85}
+    classNames="picture"
+    loading="eager"
+    pictureAttributes={{ "data-item": "pictrue" }}
+    imgAttributes={{ "data-item": "img" }}
+  />
 </BaseLayout>

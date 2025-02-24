@@ -27,6 +27,16 @@
 /
 ├─ _php #ビルド後の.htmlファイルを.phpにして格納されるディレクトリ
 │
+├─ .astro #astroの設定ファイル
+│
+├─ .vscode #vscode設定ファイル
+│
+├─ config
+│  ├─ .prettierignore #prettier対象外ファイルを指定
+│  ├─ .prettierrc #prettierの設定ファイル
+│  ├─ postcss.config.cjs #PostCSSの設定ファイル
+│  └─ rename-index-to-php.mjs #index.htmlをPHPファイルに変換するスクリプト
+│
 ├─ dist #ビルド後の成果物が格納されるディレクトリ
 │  ├─ assets
 │  │  ├─ css
@@ -61,16 +71,14 @@
 │  │  └─ js #Vanilla JS
 │  │
 │  ├─ components #再利用可能なAstroコンポーネント（ボタン、カードなど）
+│  ├─ config #metaなどの設定ファイル
+│  ├─ elements #最小単位のパーツ（画像、テキストなど）
 │  ├─ layouts #ページレイアウトのAstroコンポーネント（ヘッダー、フッターなど）
-│  └─pages #ルーティングに使用されるAstroページコンポーネント（home,about、news など）
+│  └─ pages #ルーティングに使用されるAstroページコンポーネント（home,about、news など）
 │
 ├─ .gitignore #Gitの追跡対象外ファイルを指定
-├─ .prettierignore #prettier対象外ファイルを指定
-├─ .prettierrc #prettierの設定ファイル
-├─ astro.config.mjs #Astroの設定ファイル
+├─ astro.config.mjs #Astro・viteの設定ファイル(ビルドの設定)
 ├─ package-lock.json #npmパッケージの依存関係
 ├─ package.json #ロジェクトの依存関係やスクリプト
-├─ postcss.config.cjs #PostCSSの設定ファイル
-├─ README.md #プロジェクトのドキュメント
-└─ rename-index-to-php.mjs #index.htmlをPHPファイルに変換するスクリプト
+└─ README.md #プロジェクトのドキュメント
 ```

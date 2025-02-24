@@ -3,8 +3,8 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "style:lint": "stylelint \"src/assets/**/*.scss\"",
-    "format": "prettier --write . --ignore-path .prettierignore",
+    "style:lint": "stylelint \"src/assets/**/*.scss\" --config ./config/.stylelintrc",
+    "format": "prettier --write . --config ./config/.prettierrc --ignore-path ./config/.prettierignore",
     "renameToPhp": "node ./config/rename-index-to-php.mjs",
     "dev": "astro dev",
     "build": "npm run style:lint && astro build && npm run format",
