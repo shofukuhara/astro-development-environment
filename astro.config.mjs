@@ -1,6 +1,30 @@
 import relativeLinks from "astro-relative-links";
 import { defineConfig } from "astro/config";
+import { URL } from "url";
+import terser from "@rollup/plugin-terser";
+import path from "path";
 import license from "rollup-plugin-license";
+
+// ライセンスコメント追加プラグイン
+const addLicenseComment = () => ({
+  name: "add-license-comment",
+  writeBundle: () => {
+    const dirname = new URL(".", import.meta.url).pathname;
+    const filePath = path.resolve(dirname, "dist/assets/js/index.js");
+    const comment =
+      "/*! Please refer to licence.txt for the details of the license. */\n";
+    fs.readFile(filePath, "utf8", (err, data) => {
+      if (err) return console.error(err);
+      const modifiedData = comment + data;
+      fs.writeFile(
+        filePath,
+        modifiedData,
+        "utf8",
+        (err) => err && console.error(err)
+      );
+    });
+  },
+});
 
 export default defineConfig({
   server: {
@@ -39,6 +63,7 @@ export default defineConfig({
           },
           entryFileNames: "assets/js/index.js",
         },
+        plugins: [addLicenseComment(), terser()],
       },
     },
     css: {
