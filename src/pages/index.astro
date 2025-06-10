@@ -10,17 +10,21 @@ import Picture from "../elements/Picture.astro";
     srcPaths={["pc.jpg"]}
     format="webp"
     quality={85}
-    classNames="img"
     loading="eager"
     alt=""
-    imgAttributes={{ "data-item": "img" }}
   />
   <Picture
     srcPaths={["pc.jpg", "sp.jpg"]}
     format="webp"
     quality={85}
-    classNames="picture"
     loading="eager"
-    pictureAttributes={{ "data-item": "pictrue" }}
   />
+  <Picture 
+      srcPaths={['pc.jpg', 'sp.jpg']} 
+      format="webp" 
+      quality={85} 
+      loading="eager" 
+      pictureAttributes={{ "data-item": 'pictrue' }} 
+      imgAttributes={{ "data-item": 'img' }} 
+    />
 </BaseLayout>

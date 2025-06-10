@@ -6,6 +6,7 @@
     "style:lint": "stylelint \"src/assets/**/*.scss\" --config ./config/.stylelintrc",
     "format": "prettier --write . --config ./config/.prettierrc --ignore-path ./config/.prettierignore",
     "renameToPhp": "node ./config/rename-index-to-php.mjs",
+    "inlineComment": "node ./config/add-inline-license-comment.mjs",
     "dev": "astro dev",
     "build": "npm run style:lint && astro build",
     "preview": "astro preview",
