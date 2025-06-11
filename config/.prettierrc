@@ -8,6 +8,6 @@
   "bracketSpacing": true,
   "arrowParens": "always",
   "proseWrap": "preserve",
-  "endOfLine": "lf",
+  "endOfLine": "auto",
   "plugins": ["prettier-plugin-astro", "prettier-plugin-organize-imports"]
 }

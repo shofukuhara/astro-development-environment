@@ -1,10 +1,5 @@
 @use "../global/index.scss" as *;
 
-:root {
-  --vw: 100vw;
-  --vh: 100vh;
-}
-
 body {
   font-feature-settings: "palt";
   -webkit-font-smoothing: antialiased;

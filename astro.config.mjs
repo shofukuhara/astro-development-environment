@@ -94,7 +94,7 @@ export default defineConfig({
       // 使用しているライブラリのライセンス出力
       license({
         thirdParty: {
-          // output: "dist/assets/js/license.txt",//インライン化しない場合
+          // output: "dist/assets/js/license.txt",//インライン化
           output: "dist/license.txt",//インライン化
           includePrivate: true,
         },
