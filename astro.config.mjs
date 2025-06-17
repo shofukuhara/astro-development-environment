@@ -17,7 +17,7 @@ const addLicenseComment = () => ({
     // ビルド後のJSファイルパス
     const filePath = path.resolve(__dirname, "dist/assets/js/index.js");
     const comment =
-      "/*! Please refer to licence.txt for the details of the license. */\n";
+      "/*! Please refer to license.txt for the details of the license. */\n";
 
     // ファイル存在確認を追加
     if (!fs.existsSync(filePath)) {
