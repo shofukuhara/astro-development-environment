@@ -1,25 +1,33 @@
 ---
+type Props = {
+  href: string;
+  target?: string;
+  className?: string;
+  style?: string;
+  text: string;
+};
+
 const {
   href,
   target = "",
-  classList = "",
+  className = "",
   style = "",
   text,
   ...data
-} = Astro.props;
+}: Props = Astro.props;
 ---
 
 <a
   href={href}
   target={target || undefined}
-  class={`c-button ${classList}`}
+  class={`c-button ${className}`}
   style={style || undefined}
   {...data}
 >
   <span class="c-button_text" set:html={text} />
 </a>
 
-<style lang="scss">
+<style lang="scss" is:global>
   .c-button {
     display: flex;
     align-items: center;

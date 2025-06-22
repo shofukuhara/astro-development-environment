@@ -2,7 +2,7 @@
 import metaData from "./meta.json";
 
 const { pageMeta } = Astro.props;
-const meta = metaData[pageMeta] || metaData.default;
+const meta = metaData[pageMeta as keyof typeof metaData] || metaData["default"];
 ---
 
 <meta charset="UTF-8" />

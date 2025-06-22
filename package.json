@@ -6,14 +6,16 @@
     "style:lint": "stylelint \"src/assets/**/*.scss\" --fix --config ./config/.stylelintrc",
     "format": "prettier --write . --config ./config/.prettierrc --ignore-path ./config/.prettierignore",
     "renameToPhp": "node ./config/rename-index-to-php.mjs",
-    "inlineComment": "node ./config/add-inline-license-comment.mjs",
+    "addLicense": "node ./config/add-license.mjs",
     "dev": "astro dev",
-    "build": "npm run style:lint && astro build",
+    "build": "npm run style:lint && astro build && npm run addLicense",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.3.0"
+    "astro": "^5.10.0",
+    "gsap": "^3.13.0",
+    "ua-parser-js": "^2.0.3"
   },
   "devDependencies": {
     "@rollup/plugin-terser": "^0.4.4",

@@ -9,7 +9,7 @@ const { pageData } = Astro.props;
   <head>
     <Meta pageMeta={Astro.props.pageMeta} />
   </head>
-  <body data-page={pageData}>
+  <body data-page={pageData} data-os="" data-browser="" data-device="">
     <slot />
     <script src="../assets/js/index.js"></script>
   </body>
