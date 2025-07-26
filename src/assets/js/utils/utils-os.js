@@ -31,7 +31,9 @@ export class UAParserUtils {
   }
 
   getDevice() {
-    return this.device.model || "Unknown Device";
+    if (this.device.model) return this.device.model;
+    if (this.device.type) return this.device.type;
+    return "Desktop";
   }
 
   dataSet() {

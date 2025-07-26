@@ -72,7 +72,6 @@
 │  │
 │  ├─ components #再利用可能なAstroコンポーネント（ボタン、カードなど）
 │  ├─ config #metaなどの設定ファイル
-│  ├─ elements #最小単位のパーツ（画像、テキストなど）
 │  ├─ layouts #ページレイアウトのAstroコンポーネント（ヘッダー、フッターなど）
 │  └─ pages #ルーティングに使用されるAstroページコンポーネント（home,about、news など）
 │
