@@ -1,42 +1,9 @@
 ---
 import Base from "../layouts/Base.astro";
-import AssetsImage from "../components/common/AssetsImage.astro";
-import AssetsPicture from "../components/common/AssetsPicture.astro";
+import AssetsImage from "../components/elements/AssetsImage.astro";
+import AssetsPicture from "../components/elements/AssetsPicture.astro";
 import Button from "../components/ui/Button.astro";
-import Picture from "../components/common/Picture.astro";
+import Picture from "../components/elements/Picture.astro";
 ---
 
-<Base pageMeta="home" pageData="home">
-  <!-- body内の要素 -->
-  <Button href="/about" className="c-button--primary" text="Aboutページへ" />
-  <AssetsImage
-    srcPaths={["../assets/images/common/pc.jpg"]}
-    format="webp"
-    quality={85}
-    loading="eager"
-    alt=""
-  />
-  <AssetsPicture
-    srcPaths={["pc.jpg", "sp.jpg"]}
-    format="webp"
-    quality={85}
-    loading="eager"
-  />
-  <AssetsPicture
-    srcPaths={["pc.jpg", "sp.jpg"]}
-    format="webp"
-    quality={85}
-    loading="eager"
-    pictureAttributes={{ "data-item": "pictrue" }}
-    imgAttributes={{ "data-item": "img" }}
-  />
-  <Picture
-    srcPc="common/item_pc"
-    srcSp="common/item_sp"
-    alt="説明テキスト"
-    loading="lazy"
-    classNames="custom-class item"
-    pictureAttributes={{ "data-picture": "" }}
-    imgAttributes={{ "data-img": "" }}
-  />
-</Base>
+<Base pageMeta="home" pageData="home" />

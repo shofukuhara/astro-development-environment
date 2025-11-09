@@ -1,4 +1,4 @@
-export class BreakpointObserver {
+export class Breakpoint {
   constructor(callback) {
     this.breakpoint = "768px";
     this.callback = callback;
@@ -25,7 +25,7 @@ export class BreakpointObserver {
   }
 }
 
-new BreakpointObserver((isPC) => {
+new Breakpoint((isPC) => {
   if (isPC) {
     console.log("PCブレイクポイントを超えました！（769px以上）");
   } else {

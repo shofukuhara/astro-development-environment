@@ -1,4 +1,4 @@
-export class UpdateViewportSize {
+export class ViewportManager {
   init() {
     ["DOMContentLoaded", "resize"].forEach((event) => {
       window.addEventListener(event, () => {

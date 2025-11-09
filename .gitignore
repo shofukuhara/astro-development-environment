@@ -1,4 +1,5 @@
 # build output
+_images_raw/compressed
 dist/
 _php/
 

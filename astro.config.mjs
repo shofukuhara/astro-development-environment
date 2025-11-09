@@ -2,6 +2,16 @@ import relativeLinks from "astro-relative-links";
 import compress from "astro-compress";
 import { defineConfig } from "astro/config";
 import license from "rollup-plugin-license";
+import path from "path";
+
+// ============================
+// 設定エリア
+// ============================
+const outputPaths = {
+  js: "assets/scripts/index.js",
+  css: "assets/styles/index.css",
+  license: "assets/scripts/license.txt",
+};
 
 export default defineConfig({
   server: {
@@ -12,50 +22,53 @@ export default defineConfig({
   integrations: [relativeLinks()],
   vite: {
     build: {
-      cssMinify: true, // css圧縮する場合はtrue
-      cssCodeSplit: false, // cssコード分割を有効の場合はtrue
-      assetsInlineLimit: 0, //インラインでの出力無効
+      cssMinify: true,
+      cssCodeSplit: false,
+      assetsInlineLimit: 0,
       minify: "esbuild",
       rollupOptions: {
+        external: [/list/],
         output: {
+          // JS出力先
+          entryFileNames: outputPaths.js,
+
+          // CSSや画像などのアセット出力先
           assetFileNames: (assetInfo) => {
-            let extType =
-              assetInfo.names?.[0]?.split(".").at(-1) ||
-              assetInfo.fileName.split(".").at(-1);
-            let folder = "others";
+            const ext = path
+              .extname(assetInfo.name || "")
+              .replace(".", "")
+              .toLowerCase();
 
             if (
-              /png|jpe?g|svg|gif|tiff?|bmp|ico|webp|avif|heic|heif/i.test(
-                extType
-              )
+              /png|jpe?g|svg|gif|tiff?|bmp|ico|webp|avif|heic|heif/.test(ext)
             ) {
-              folder = "images";
               return "assets/images/[name].[extname]";
-            } else if (/css|scss/i.test(extType)) {
-              folder = "css";
-              return "assets/css/index.css";
+            } else if (/css/.test(ext)) {
+              // ✅ CSS出力パスをconfigから指定
+              return outputPaths.css;
             }
-            return `assets/${folder}/[name].[extname]`;
+            return "assets/others/[name].[extname]";
           },
-          entryFileNames: "assets/js/index.js",
         },
         plugins: [
           license({
             thirdParty: {
-              output: "dist/assets/js/license.txt",
+              output: path.join("dist", outputPaths.license),
               includePrivate: true,
             },
           }),
         ],
       },
     },
+
+    // SCSS設定
     css: {
       postcss: "./config/postcss.config.cjs",
       devSourcemap: true,
       preprocessorOptions: {
         scss: {
           additionalData: `
-          @use "/src/assets/css/foundation/global/index.scss" as *;
+            @use "/src/assets/styles/foundation/global/index.scss" as *;
           `,
         },
       },

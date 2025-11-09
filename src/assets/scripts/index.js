@@ -1,10 +1,11 @@
-import { UpdateViewportSize } from "./utils/viewport-utils";
-import { UAParserUtils } from "./utils/utils-os";
+import { UserAgentParser } from "./utils/userAgentParser";
+import { ViewportManager } from "./utils/viewportManager";
 
 // 共通処理格納
 const commonModules = {
   common: () => {
-    new UAParserUtils().init();
+    new ViewportManager().init();
+    new UserAgentParser().init();
   },
 };
 
@@ -22,4 +23,3 @@ if (page) {
     pageModules[pageAttribute](); // 各ページの処理を実行
   }
 }
-
