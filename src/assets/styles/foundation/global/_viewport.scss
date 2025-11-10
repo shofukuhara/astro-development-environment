@@ -12,7 +12,7 @@ $vh: 100vh;
 @mixin viewport {
   --breakpoint: #{$breakpoint}px;
   --viewport-pc: #{$viewport-pc}px;
-  --viewport-sp: #{$viewport-sp}px; 
+  --viewport-sp: #{$viewport-sp}px;
   --vw: #{$vw};
   --vh: #{$vh};
 }

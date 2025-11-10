@@ -27,7 +27,6 @@ export default defineConfig({
       assetsInlineLimit: 0,
       minify: "esbuild",
       rollupOptions: {
-        external: [/list/],
         output: {
           // JS出力先
           entryFileNames: outputPaths.js,

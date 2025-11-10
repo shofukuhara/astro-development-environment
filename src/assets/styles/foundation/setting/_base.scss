@@ -7,8 +7,8 @@ body {
     display: none !important;
   }
   @include media(pc) {
-    width: pc_vw(1220);
     display: block;
+    width: pc_vw(1220);
   }
 }
 
