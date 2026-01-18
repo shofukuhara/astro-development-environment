@@ -1,7 +1,7 @@
 ---
-import "../assets/styles/index.scss";
+import "@/assets/styles/index.scss";
 
-import Head from "../components/common/Head.astro";
+import Head from "@/components/common/Head.astro";
 const { pageData } = Astro.props;
 ---
 
@@ -12,6 +12,5 @@ const { pageData } = Astro.props;
   </head>
   <body data-page={pageData} data-os="" data-browser="" data-device="">
     <slot />
-    <script src="../assets/scripts/index.js"></script>
   </body>
 </html>

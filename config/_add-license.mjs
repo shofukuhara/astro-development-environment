@@ -7,20 +7,14 @@ import path from "path";
 const config = {
   distDir: "dist",
   assetDir: "assets",
-  jsDir: "scripts",
-  banner:
-    "/*! Please refer to license.txt for the details of the license. */\n",
+  jsDir: "js",
+  banner: "/*! Please refer to license.txt for the details of the license. */\n",
 };
 
 // ============================
 // 実行部分
 // ============================
-const distJsPath = path.join(
-  process.cwd(),
-  config.distDir,
-  config.assetDir,
-  config.jsDir
-);
+const distJsPath = path.join(process.cwd(), config.distDir, config.assetDir, config.jsDir);
 
 try {
   const files = await fs.readdir(distJsPath);

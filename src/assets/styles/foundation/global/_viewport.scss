@@ -4,6 +4,7 @@ $breakpoint: 768;
 // pc・sp
 $viewport-pc: 1440;
 $viewport-sp: 375;
+$viewport-range: $viewport-pc - $viewport-sp;
 
 // ビューポート単位
 $vw: 100vw;
@@ -13,6 +14,7 @@ $vh: 100vh;
   --breakpoint: #{$breakpoint}px;
   --viewport-pc: #{$viewport-pc}px;
   --viewport-sp: #{$viewport-sp}px;
+  --viewport-range: #{$viewport-pc - $viewport-sp}px;
   --vw: #{$vw};
   --vh: #{$vh};
 }

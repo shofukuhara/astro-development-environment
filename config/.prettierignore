@@ -1,5 +1,6 @@
 # build output
 ../dist/assets
+# ../_php/assets
 
 # generated types
 .astro/
@@ -16,7 +17,9 @@ package-lock.json
 package.json
 postcss.config.cjs
 README.md
-
+.gitignore
+.nvmrc
+.prettierignore
 
 # logs
 npm-debug.log*

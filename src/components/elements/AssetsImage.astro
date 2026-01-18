@@ -24,9 +24,7 @@ const {
 } = Astro.props;
 
 const importImage = async (src: string) => {
-  const imageFile = import.meta.glob<{ default: ImageMetadata }>(
-    "/src/assets/images/**/*"
-  );
+  const imageFile = import.meta.glob<{ default: ImageMetadata }>("/src/assets/images/**/*");
 
   if (!imageFile[`/src/assets/images/${src}`]) return;
   const moduleImage = await imageFile[`/src/assets/images/${src}`]();
@@ -43,15 +41,11 @@ const importImage = async (src: string) => {
 };
 
 const importImages = async () => {
-  return Promise.all(
-    srcPaths.filter((src): src is string => src !== undefined).map(importImage)
-  );
+  return Promise.all(srcPaths.filter((src): src is string => src !== undefined).map(importImage));
 };
 
 const applyDataAttributes = (attributes: Record<string, string>) =>
-  Object.fromEntries(
-    Object.entries(attributes).map(([key, value]) => [key, value])
-  );
+  Object.fromEntries(Object.entries(attributes).map(([key, value]) => [key, value]));
 
 const images = await importImages();
 ---

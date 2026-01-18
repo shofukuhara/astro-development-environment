@@ -1,18 +1,50 @@
 import relativeLinks from "astro-relative-links";
-import compress from "astro-compress";
 import { defineConfig } from "astro/config";
-import license from "rollup-plugin-license";
 import path from "path";
+import license from "rollup-plugin-license";
 
 // ============================
-// 設定エリア
+// パス設定
 // ============================
-const outputPaths = {
-  js: "assets/scripts/index.js",
-  css: "assets/styles/index.css",
-  license: "assets/scripts/license.txt",
+const PATHS = {
+  output: {
+    js: "assets/js/index.js",
+    css: "assets/css/index.css",
+    images: "assets/images",
+    others: "assets/others",
+    license: "assets/js/license.txt",
+  },
+  src: {
+    styles: "/src/assets/styles/foundation/global/index.scss",
+  },
 };
 
+// 画像拡張子の正規表現
+const IMAGE_EXTENSIONS = /png|jpe?g|svg|gif|tiff?|bmp|ico|webp|avif|heic|heif/;
+
+// ============================
+// アセットファイル名の生成
+// ============================
+const getAssetFileName = (assetInfo) => {
+  const ext = path
+    .extname(assetInfo.name || "")
+    .replace(".", "")
+    .toLowerCase();
+
+  if (IMAGE_EXTENSIONS.test(ext)) {
+    return `${PATHS.output.images}/[name].[extname]`;
+  }
+
+  if (ext === "css") {
+    return PATHS.output.css;
+  }
+
+  return `${PATHS.output.others}/[name].[extname]`;
+};
+
+// ============================
+// Astro設定
+// ============================
 export default defineConfig({
   server: {
     host: true,
@@ -25,50 +57,38 @@ export default defineConfig({
       cssMinify: true,
       cssCodeSplit: false,
       assetsInlineLimit: 0,
-      minify: "esbuild",
+      minify: "terser",
+      terserOptions: {
+        format: {
+          comments: false,
+        },
+      },
       rollupOptions: {
         output: {
-          // JS出力先
-          entryFileNames: outputPaths.js,
-
-          // CSSや画像などのアセット出力先
-          assetFileNames: (assetInfo) => {
-            const ext = path
-              .extname(assetInfo.name || "")
-              .replace(".", "")
-              .toLowerCase();
-
-            if (
-              /png|jpe?g|svg|gif|tiff?|bmp|ico|webp|avif|heic|heif/.test(ext)
-            ) {
-              return "assets/images/[name].[extname]";
-            } else if (/css/.test(ext)) {
-              // ✅ CSS出力パスをconfigから指定
-              return outputPaths.css;
-            }
-            return "assets/others/[name].[extname]";
-          },
+          entryFileNames: PATHS.output.js,
+          assetFileNames: getAssetFileName,
         },
         plugins: [
           license({
             thirdParty: {
-              output: path.join("dist", outputPaths.license),
+              output: path.join("dist", PATHS.output.license),
               includePrivate: true,
             },
           }),
         ],
       },
     },
-
-    // SCSS設定
+    resolve: {
+      alias: {
+        "@": "/src",
+      },
+    },
     css: {
       postcss: "./config/postcss.config.cjs",
       devSourcemap: true,
       preprocessorOptions: {
         scss: {
-          additionalData: `
-            @use "/src/assets/styles/foundation/global/index.scss" as *;
-          `,
+          additionalData: `@use "${PATHS.src.styles}" as *;`,
         },
       },
     },

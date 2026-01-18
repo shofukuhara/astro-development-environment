@@ -1,27 +1,19 @@
 ---
-type Props = {
+interface Props {
   href: string;
   target?: string;
   className?: string;
-  style?: string;
   text: string;
-};
+  [key: string]: any;
+}
 
-const {
-  href,
-  target = "",
-  className = "",
-  style = "",
-  text,
-  ...data
-}: Props = Astro.props;
+const { href, target, className, text, ...data } = Astro.props;
 ---
 
 <a
   href={href}
-  target={target || undefined}
-  class={`c-button ${className}`}
-  style={style || undefined}
+  rel={target === "_blank" ? "noopener noreferrer" : undefined}
+  class:list={["c-button", className]}
   {...data}
 >
   <span class="c-button_text" set:html={text} />

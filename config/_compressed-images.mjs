@@ -84,12 +84,7 @@ async function processFile(inputPath, outputDir, filename) {
         const svgContent = await fs.readFile(inputPath, "utf-8");
         const result = optimize(svgContent, {
           multipass: true,
-          plugins: [
-            "preset-default",
-            "removeViewBox",
-            "sortAttrs",
-            "removeDimensions",
-          ],
+          plugins: ["preset-default", "removeViewBox", "sortAttrs", "removeDimensions"],
         });
         const outputPath = path.join(outputDir, filename);
         await fs.writeFile(outputPath, result.data);
@@ -102,16 +97,7 @@ async function processFile(inputPath, outputDir, filename) {
   }
 
   // 対応している画像形式かチェック
-  const supportedFormats = [
-    ".jpg",
-    ".jpeg",
-    ".png",
-    ".webp",
-    ".avif",
-    ".gif",
-    ".tiff",
-    ".tif",
-  ];
+  const supportedFormats = [".jpg", ".jpeg", ".png", ".webp", ".avif", ".gif", ".tiff", ".tif"];
   if (!supportedFormats.includes(ext)) {
     console.log(`⏭️  スキップ: ${filename} (非対応形式)`);
     return;

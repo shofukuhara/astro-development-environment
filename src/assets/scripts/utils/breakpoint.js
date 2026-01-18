@@ -8,10 +8,7 @@ export class Breakpoint {
 
   init() {
     this.mediaQueryList = window.matchMedia(`(min-width: ${this.breakpoint})`);
-    this.mediaQueryList.addEventListener(
-      "change",
-      this.handleChange.bind(this)
-    );
+    this.mediaQueryList.addEventListener("change", this.handleChange.bind(this));
     // 初回実行
     this.handleChange(this.mediaQueryList);
   }

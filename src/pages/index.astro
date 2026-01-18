@@ -1,9 +1,21 @@
 ---
-import Base from "../layouts/Base.astro";
-import AssetsImage from "../components/elements/AssetsImage.astro";
-import AssetsPicture from "../components/elements/AssetsPicture.astro";
-import Button from "../components/ui/Button.astro";
-import Picture from "../components/elements/Picture.astro";
+import Title from "@/components/elements/Title .astro";
+import Button from "@/components/ui/Button.astro";
+import Card from "@/components/ui/Card.astro";
+import Base from "@/layouts/Base.astro";
 ---
 
-<Base pageMeta="home" pageData="home" />
+<Base pageMeta="home" pageData="home">
+  <Title text="Hello world" className="title" style="color:red;" data-item="" data-scroll="" />
+  <Button href="" target="_blank" className="__primary" text="button" data-item="" data-scroll="" />
+  <Card
+    href="/"
+    target="_blank"
+    className="__primary"
+    image_pc="@/assets/images/"
+    image_sp="@/assets/images/"
+    title="card title"
+    description="card descriptiom"
+  />
+  <style lang="scss" is:global></style>
+</Base>

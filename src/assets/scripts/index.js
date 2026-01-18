@@ -23,3 +23,22 @@ if (page) {
     pageModules[pageAttribute](); // 各ページの処理を実行
   }
 }
+
+import gsap from "gsap";
+class masonry {
+  constructor() {
+    this.item = document.querySelector("[data-masonry]");
+  }
+  init() {
+    new Masonry(this.item, {
+      itemSelector: "[data-masonry-item]",
+      columnWidth: 200,
+    });
+    gsap.to(this.item, {
+      autoAlpha: 1,
+      duration: 1,
+    });
+  }
+}
+
+new masonry.init();

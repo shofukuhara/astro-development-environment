@@ -1,7 +1,7 @@
 import gsap from "gsap";
 
 export class ScrollAnimation {
-  constructor(options = { threshold: 0.55, rootMargin: "0px" }) {
+  constructor(options = { threshold: 0, rootMargin: "0px" }) {
     this.observers = [];
     this.options = options;
 
@@ -10,8 +10,8 @@ export class ScrollAnimation {
         attr: "data-scroll-fade",
         animate: (target, observer) => {
           gsap.to(target, {
-            duration: 2,
             ease: "power4.out",
+            duration: 2,
             autoAlpha: 1,
             onComplete: () => {
               target.setAttribute("data-scroll-fade", "active");

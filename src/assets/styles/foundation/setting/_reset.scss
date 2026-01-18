@@ -1,4 +1,10 @@
-*,
+// 特定のエリア内だけに反映させる場合
+// :where(#id.class) {}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
 *::before,
 *::after {
   box-sizing: border-box;
@@ -11,10 +17,6 @@
   color: inherit;
   border: 0;
   vertical-align: baseline;
-}
-
-html {
-  -webkit-text-size-adjust: 100%;
 }
 
 article,

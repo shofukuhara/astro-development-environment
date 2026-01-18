@@ -25,11 +25,7 @@ const safeStyle = style?.trim() ? style : undefined;
 const imgBase = import.meta.env.BASE_URL + "assets/images/";
 ---
 
-<picture
-  {...pictureAttributes}
-  class={[classNames].filter(Boolean).join(" ")}
-  style={safeStyle}
->
+<picture {...pictureAttributes} class={[classNames].filter(Boolean).join(" ")} style={safeStyle}>
   <source
     srcset={`${imgBase}${srcSp}.avif 1x, ${imgBase}${srcSp}@2x.avif 2x`}
     type="image/avif"
